@@ -1,0 +1,81 @@
+/* style.css */
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Change: New class for a background that is a darker shade of the body color */
+.bg-tan-light {
+  background-color: #E9DCCF;
+}
+.bg-tan-light:hover {
+  background-color: #E0D3C6;
+}
+
+/* Change: The image is now the card. 
+  - object-fit: cover makes the image fill the entire rounded rectangle.
+  - border-radius rounds the corners of the image itself.
+  - box-shadow is applied directly to the image.
+*/
+.coffee-img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover; 
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+
+/* --- Language Carousel Styles --- */
+#flagCarousel {
+  max-width: 240px;
+}
+
+#flagTrack {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+}
+
+.flag {
+  width: 50px;
+  height: 72px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 4px;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.flag img {
+  width: 34px;
+  height: 22px;
+  object-fit: contain;
+  border-radius: 4px;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
+  margin-bottom: 2px;
+}
+
+.flag-label {
+  font-size: 0.65rem;
+  margin-top: 2px;
+  font-weight: 600;
+  color: #333;
+  text-align: center;
+}
+
+.flag.selected {
+  border: 3px solid #d6a77a;
+  border-radius: 8px;
+  box-shadow: 0 0 6px rgba(214, 167, 122, 0.6);
+  background-color: #fdf6f0;
+}
+
+.flag.selected .flag-label {
+  color: #b15e26;
+  font-weight: 700;
+  text-decoration: underline;
+}
