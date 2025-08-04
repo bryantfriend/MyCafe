@@ -112,17 +112,16 @@ function renderMenu(menuData) {
   const categoriesContainer = document.getElementById('menuCategories');
   categoriesContainer.innerHTML = ''; // Clear old categories
 
-  // 1. Create the category buttons on the left
+  // 1. Create the category buttons
   menuData.forEach((category, index) => {
     const categoryName = category[`category_${currentLanguage}`] || category.category_en;
     const icon = categoryIcons[category.category_en] || '🍽️';
 
     const button = document.createElement('button');
-    // Styling for the category buttons
-    button.className = 'w-full text-left p-3 rounded-lg flex items-center gap-3 transition duration-200';
+    // ** MODIFIED LINE **: 'flex-shrink-0' for mobile, 'md:w-full' for desktop
+    button.className = 'flex-shrink-0 md:w-full text-left p-3 rounded-lg flex items-center gap-3 transition duration-200 whitespace-nowrap';
     button.innerHTML = `<span>${icon}</span><span class="font-semibold">${categoryName}</span>`;
     
-    // Set a data attribute to know which category this is
     button.dataset.index = index;
 
     // Add active state for the first button
