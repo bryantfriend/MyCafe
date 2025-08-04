@@ -1,0 +1,165 @@
+[
+  {
+    "category_en": "Breakfasts",
+    "category_ru": "Завтраки",
+    "category_ky": "Эртең мененки тамактар",
+    "items": [
+      {"name": "Green Breakfast", "price": "380", "translations": {"ru": {"name": "Зеленый завтрак"}, "ky": {"name": "Жашыл эртең мененки тамак"}}},
+      {"name": "Fried eggs with toppings", "description": "Tomato | Avocado | Cucumber", "price": "450", "translations": {"ru": {"name": "Яичница с топпингами", "description": "Томат | Авокадо | Огурец"}, "ky": {"name": "Кошулмалары менен куурулган жумуртка", "description": "Помидор | Авокадо | Бадыраң"}}},
+      {"name": "Green Buckwheat", "description": "Arugula | Avocado | Apple", "price": "580", "translations": {"ru": {"name": "Зеленая гречка", "description": "Руккола | Авокадо | Яблоко"}, "ky": {"name": "Жашыл гречка", "description": "Руккола | Авокадо | Алма"}}},
+      {"name": "Big Green Breakfast", "price": "650", "translations": {"ru": {"name": "Большой зеленый завтрак"}, "ky": {"name": "Чоң жашыл эртең мененки тамак"}}},
+      {"name": "Signature Mano Breakfast", "price": "650", "translations": {"ru": {"name": "Фирменный завтрак Mano"}, "ky": {"name": "Mano фирмалык эртең мененки тамагы"}}},
+      {"name": "Rice Porridge", "description": "Mango | Caramel", "price": "380", "translations": {"ru": {"name": "Рисовая каша", "description": "Манго | Карамель"}, "ky": {"name": "Күрүч боткосу", "description": "Манго | Карамель"}}},
+      {"name": "Oatmeal", "description": "Banana | Peanut Butter", "price": "380", "translations": {"ru": {"name": "Овсяная каша", "description": "Банан | Арахисовая паста"}, "ky": {"name": "Сулу боткосу", "description": "Банан | Жержаңгак майы"}}},
+      {"name": "Buckwheat Porridge", "description": "Seeds | Toast", "price": "380", "translations": {"ru": {"name": "Гречневая каша", "description": "Семечки | Тост"}, "ky": {"name": "Гречка боткосу", "description": "Уруктар | Тост"}}},
+      {"name": "Semolina Porridge", "description": "Strawberry | Chocolate", "price": "360", "translations": {"ru": {"name": "Манная каша", "description": "Клубника | Шоколад"}, "ky": {"name": "Манна боткосу", "description": "Кулпунай | Шоколад"}}},
+      {"name": "Mini Pancakes", "description": "Chocolate | Caramel", "price": "380", "translations": {"ru": {"name": "Мини-панкейки", "description": "Шоколад | Карамель"}, "ky": {"name": "Мини-панкейктер", "description": "Шоколад | Карамель"}}},
+      {"name": "Pancakes", "description": "Banana | Caramel", "price": "380", "translations": {"ru": {"name": "Панкейки", "description": "Банан | Карамель"}, "ky": {"name": "Панкейктер", "description": "Банан | Карамель"}}},
+      {"name": "Potato Draniki", "description": "Fried Egg / Sour Cream / Cucumber", "price": "480", "translations": {"ru": {"name": "Картофельные драники", "description": "Яичница / Сметана / Огурец"}, "ky": {"name": "Картошка драниктери", "description": "Куурулган жумуртка / Каймак / Бадыраң"}}},
+      {"name": "Shakshuka", "description": "Tomatoes | Toast / Spinach", "price": "450", "translations": {"ru": {"name": "Шакшука", "description": "Томаты | Тост / Шпинат"}, "ky": {"name": "Шакшука", "description": "Помидор | Тост / Шпинат"}}},
+      {"name": "Country Breakfast", "price": "650", "translations": {"ru": {"name": "Деревенский завтрак"}, "ky": {"name": "Айылча эртең мененки тамак"}}},
+      {"name": "Add-ons", "description": "Sweet/Salted Tomatoes (80), Avocado (100), Egg/Veggies (50-100)", "price": "50-100", "translations": {"ru": {"name": "Добавки", "description": "Сладкие/соленые томаты (80), Авокадо (100), Яйцо/Овощи (50-100)"}, "ky": {"name": "Кошумчалар", "description": "Таттуу/туздалган помидор (80), Авокадо (100), Жумуртка/Жашылчалар (50-100)"}}}
+    ]
+  },
+  {
+    "category_en": "Coffee & Teas",
+    "category_ru": "Кофе и Чай",
+    "category_ky": "Кофе жана Чайлар",
+    "items": [
+      {"name": "Espresso", "price": "150", "translations": {"ru": {"name": "Эспрессо"}, "ky": {"name": "Эспрессо"}}},
+      {"name": "Americano", "price": "150/200", "translations": {"ru": {"name": "Американо"}, "ky": {"name": "Американо"}}},
+      {"name": "Cappuccino", "price": "170/220", "translations": {"ru": {"name": "Капучино"}, "ky": {"name": "Капучино"}}},
+      {"name": "Latte", "price": "170/220", "translations": {"ru": {"name": "Латте"}, "ky": {"name": "Латте"}}},
+      {"name": "Flat White", "price": "220", "translations": {"ru": {"name": "Флэт Уайт"}, "ky": {"name": "Флэт Уайт"}}},
+      {"name": "Baileys & Orange Juice Coffee", "price": "250", "translations": {"ru": {"name": "Кофе Бейлис и Апельсиновый сок"}, "ky": {"name": "Бейлис жана апельсин ширеси кошулган кофе"}}},
+      {"name": "Espresso Tonic", "price": "220", "translations": {"ru": {"name": "Эспрессо-тоник"}, "ky": {"name": "Эспрессо-тоник"}}},
+      {"name": "Iced Coffee", "description": "Cappuccino, Latte, Americano, Flat White", "price": "180-240", "translations": {"ru": {"name": "Холодный кофе", "description": "Капучино, Латте, Американо, Флэт Уайт"}, "ky": {"name": "Муздак кофе", "description": "Капучино, Латте, Американо, Флэт Уайт"}}},
+      {"name": "Hot Chocolate", "price": "250", "translations": {"ru": {"name": "Горячий шоколад"}, "ky": {"name": "Ысык шоколад"}}},
+      {"name": "Cocoa with Marshmallows", "price": "250", "translations": {"ru": {"name": "Какао с маршмеллоу"}, "ky": {"name": "Маршмеллоу кошулган какао"}}},
+      {"name": "Hot Tea", "description": "Black, Green, Jasmine, Thyme", "price": "200-250", "translations": {"ru": {"name": "Горячий чай", "description": "Черный, Зеленый, Жасмин, Чабрец"}, "ky": {"name": "Ысык чай", "description": "Кара, Көк, Жасмин, Тимьян"}}},
+      {"name": "Fruit Teas (Teapot)", "description": "Ginger, Raspberry, Tropical, etc.", "price": "250/350", "translations": {"ru": {"name": "Фруктовые чаи (Чайник)", "description": "Имбирный, Малиновый, Тропический и др."}, "ky": {"name": "Мөмө чайлар (Чайнек)", "description": "Имбирь, Малина, Тропикалык ж.б."}}}
+    ]
+  },
+  {
+    "category_en": "Cold Drinks",
+    "category_ru": "Холодные напитки",
+    "category_ky": "Муздак суусундуктар",
+    "items": [
+      {"name": "Iced Tea", "description": "Black, Green, Herbal", "price": "160", "translations": {"ru": {"name": "Айс ти", "description": "Черный, Зеленый, Травяной"}, "ky": {"name": "Муз чай", "description": "Кара, Көк, Чөп"}}},
+      {"name": "Flavored Iced Tea", "description": "Mango, Peach, Grapefruit", "price": "200-220", "translations": {"ru": {"name": "Айс ти со вкусом", "description": "Манго, Персик, Грейпфрут"}, "ky": {"name": "Даамдуу муз чай", "description": "Манго, Шабдалы, Грейпфрут"}}},
+      {"name": "Lemonades", "description": "Classic, Mojito, Raspberry, Kiwi-Basil", "price": "220", "translations": {"ru": {"name": "Лимонады", "description": "Классический, Мохито, Малиновый, Киви-Базилик"}, "ky": {"name": "Лимонаддар", "description": "Классикалык, Мохито, Малина, Киви-Базилик"}}},
+      {"name": "Smoothies", "description": "Tropical, Strawberry, Cherry-Banana-Apple", "price": "300", "translations": {"ru": {"name": "Смузи", "description": "Тропический, Клубничный, Вишня-Банан-Яблоко"}, "ky": {"name": "Смузилер", "description": "Тропикалык, Кулпунай, Алча-Банан-Алма"}}},
+      {"name": "Milkshakes", "description": "Vanilla, Strawberry, Chocolate", "price": "280", "translations": {"ru": {"name": "Милкшейки", "description": "Ванильный, Клубничный, Шоколадный"}, "ky": {"name": "Сүт коктейлдери", "description": "Ваниль, Кулпунай, Шоколад"}}},
+      {"name": "Detox Juices", "description": "Celery-Apple, Celery-Ginger", "price": "350", "translations": {"ru": {"name": "Детокс-соки", "description": "Сельдерей-Яблоко, Сельдерей-Имбирь"}, "ky": {"name": "Детокс-ширелер", "description": "Сельдерей-Алма, Сельдерей-Имбирь"}}},
+      {"name": "Fresh Juices", "description": "Apple, Orange, Celery, Carrot", "price": "200-300", "translations": {"ru": {"name": "Свежевыжатые соки", "description": "Яблоко, Апельсин, Сельдерей, Морковь"}, "ky": {"name": "Жаңы сыгылган ширелер", "description": "Алма, Апельсин, Сельдерей, Сабиз"}}},
+      {"name": "Sodas & Water", "description": "Cola, Fanta, Sprite, BonAqua, Red Bull", "price": "100-270", "translations": {"ru": {"name": "Газ. напитки и вода", "description": "Кола, Фанта, Спрайт, BonAqua, Red Bull"}, "ky": {"name": "Газдалган суусундуктар жана суу", "description": "Кола, Фанта, Спрайт, BonAqua, Red Bull"}}}
+    ]
+  },
+  {
+    "category_en": "Appetizers & Salads",
+    "category_ru": "Закуски и Салаты",
+    "category_ky": "Табит ачарлар жана Салаттар",
+    "items": [
+      {"name": "Lightly Salted Trout with Baked Potatoes", "price": "450", "translations": {"ru": {"name": "Малосольная форель с печеным картофелем"}, "ky": {"name": "Аз туздалган форель бышырылган картошка менен"}}},
+      {"name": "Eggplant with Adjika and Sour Cream", "price": "380", "translations": {"ru": {"name": "Баклажаны с аджикой и сметаной"}, "ky": {"name": "Аджика жана каймак кошулган баклажан"}}},
+      {"name": "Fried Potatoes with Mushrooms", "price": "450", "translations": {"ru": {"name": "Жареный картофель с грибами"}, "ky": {"name": "Козу карын менен куурулган картошка"}}},
+      {"name": "Salad with Eggplant & Stracciatella", "price": "450", "translations": {"ru": {"name": "Салат с баклажаном и страчателлой"}, "ky": {"name": "Баклажан жана страчателла кошулган салат"}}},
+      {"name": "Quinoa Salad", "price": "380", "translations": {"ru": {"name": "Салат с киноа"}, "ky": {"name": "Киноа салаты"}}},
+      {"name": "Crispy Eggplant Salad", "price": "380", "translations": {"ru": {"name": "Салат с хрустящими баклажанами"}, "ky": {"name": "Кытырак баклажан салаты"}}},
+      {"name": "Caesar Salad", "description": "Chicken (450) or Shrimp (520)", "price": "450/520", "translations": {"ru": {"name": "Салат Цезарь", "description": "С курицей (450) или креветками (520)"}, "ky": {"name": "Цезарь салаты", "description": "Тоок эти менен (450) же креветкалар менен (520)"}}}
+    ]
+  },
+  {
+    "category_en": "Burgers & Panini",
+    "category_ru": "Бургеры и Панини",
+    "category_ky": "Бургерлер жана Панини",
+    "items": [
+      {"name": "Beef Burger", "price": "590", "translations": {"ru": {"name": "Бургер с говядиной"}, "ky": {"name": "Уй этинен жасалган бургер"}}},
+      {"name": "Crispy Eggplant Burger", "price": "560", "translations": {"ru": {"name": "Бургер с хрустящим баклажаном"}, "ky": {"name": "Кытырак баклажан бургер"}}},
+      {"name": "Crispy Chicken Burger", "price": "580", "translations": {"ru": {"name": "Бургер с хрустящей курицей"}, "ky": {"name": "Кытырак тоок бургер"}}},
+      {"name": "Chicken Panini", "price": "420", "translations": {"ru": {"name": "Панини с курицей"}, "ky": {"name": "Тоок эти менен панини"}}},
+      {"name": "Tomato & Stracciatella Panini", "price": "420", "translations": {"ru": {"name": "Панини с томатами и страчателлой"}, "ky": {"name": "Помидор жана страчателла менен панини"}}}
+    ]
+  },
+  {
+    "category_en": "Soups",
+    "category_ru": "Супы",
+    "category_ky": "Шорполор",
+    "items": [
+      {"name": "Chicken Broth with Homemade Noodles", "price": "360", "translations": {"ru": {"name": "Куриный бульон с домашней лапшой"}, "ky": {"name": "Үйдө жасалган кесме кошулган тоок сорпосу"}}},
+      {"name": "Beef Borscht with Rye Bread", "price": "390", "translations": {"ru": {"name": "Борщ с говядиной и ржаным хлебом"}, "ky": {"name": "Уй эти жана кара нан кошулган борщ"}}},
+      {"name": "Okroshka with Chicken", "price": "390", "translations": {"ru": {"name": "Окрошка с курицей"}, "ky": {"name": "Тоок эти менен окрошка"}}},
+      {"name": "Cold Beet Soup with Veal", "price": "390", "translations": {"ru": {"name": "Холодный свекольник с телятиной"}, "ky": {"name": "Музоо эти кошулган муздак кызылча шорпо"}}},
+      {"name": "Tom Yum", "description": "Chicken (490) or Shrimp/Seafood (590)", "price": "490/590", "translations": {"ru": {"name": "Том Ям", "description": "С курицей (490) или креветками/морепродуктами (590)"}, "ky": {"name": "Том Ям", "description": "Тоок эти менен (490) же креветкалар/деңиз азыктары менен (590)"}}}
+    ]
+  },
+  {
+    "category_en": "Hot Dishes",
+    "category_ru": "Горячие блюда",
+    "category_ky": "Ысык тамактар",
+    "items": [
+      {"name": "Tandoori Chicken with Potatoes", "price": "750", "translations": {"ru": {"name": "Курица тандури с картофелем"}, "ky": {"name": "Картошка менен тандыр тоогу"}}},
+      {"name": "Lamb Ribs with Leek & Tamarind", "price": "850", "translations": {"ru": {"name": "Ребра ягненка с пореем и тамариндом"}, "ky": {"name": "Козу кабыргалары пияз жана тамаринд менен"}}},
+      {"name": "Veal with Bulgur & Beet Salad", "price": "620", "translations": {"ru": {"name": "Телятина с булгуром и свекольным салатом"}, "ky": {"name": "Музоо эти булгур жана кызылча салаты менен"}}},
+      {"name": "Braised Beef Cheeks with Green Pea Purée", "price": "690", "translations": {"ru": {"name": "Томленые говяжьи щечки с пюре из зеленого горошка"}, "ky": {"name": "Жашыл буурчак пюреси менен бышырылган уйдун жаактары"}}},
+      {"name": "Chicken Wings 'Bon-Bon'", "price": "600", "translations": {"ru": {"name": "Куриные крылышки «Бон-бон»"}, "ky": {"name": "«Бон-бон» тоок канаттары"}}},
+      {"name": "Chicken Cutlets with Mashed Potatoes", "price": "490", "translations": {"ru": {"name": "Куриные котлеты с картофельным пюре"}, "ky": {"name": "Тоок котлеттери картошка пюреси менен"}}},
+      {"name": "Beef Cutlets with Roasted Vegetables", "price": "490", "translations": {"ru": {"name": "Говяжьи котлеты с печеными овощами"}, "ky": {"name": "Уй этинен жасалган котлеттер бышырылган жашылчалар менен"}}}
+    ]
+  },
+  {
+    "category_en": "Pasta",
+    "category_ru": "Паста",
+    "category_ky": "Паста",
+    "items": [
+      {"name": "Fettuccine with Smoked Chicken", "price": "650", "translations": {"ru": {"name": "Феттучини с копченой курицей"}, "ky": {"name": "Ышталган тоок эти менен феттучини"}}},
+      {"name": "Fettuccine with Tomato & Stracciatella", "price": "590", "translations": {"ru": {"name": "Феттучини с томатами и страчателлой"}, "ky": {"name": "Помидор жана страчателла менен феттучини"}}},
+      {"name": "Fettuccine with Mushrooms", "price": "590", "translations": {"ru": {"name": "Феттучини с грибами"}, "ky": {"name": "Козу карын менен феттучини"}}},
+      {"name": "Spaghetti Bolognese", "price": "590", "translations": {"ru": {"name": "Спагетти болоньезе"}, "ky": {"name": "Болоньезе спагетти"}}},
+      {"name": "Spaghetti with Shrimp", "price": "650", "translations": {"ru": {"name": "Спагетти с креветками"}, "ky": {"name": "Креветкалар менен спагетти"}}},
+      {"name": "Lasagna with Tomato Sauce", "price": "590", "translations": {"ru": {"name": "Лазанья с томатным соусом"}, "ky": {"name": "Томат соусу менен лазанья"}}}
+    ]
+  },
+  {
+    "category_en": "Pizza",
+    "category_ru": "Пицца",
+    "category_ky": "Пицца",
+    "items": [
+      {"name": "Margherita", "price": "410", "translations": {"ru": {"name": "Маргарита"}, "ky": {"name": "Маргарита"}}},
+      {"name": "Zucchini Pizza", "price": "410", "translations": {"ru": {"name": "Пицца с цукини"}, "ky": {"name": "Цуккини пицца"}}},
+      {"name": "Pepperoni", "price": "590", "translations": {"ru": {"name": "Пепперони"}, "ky": {"name": "Пепперони"}}},
+      {"name": "Bolognese Pizza", "price": "650", "translations": {"ru": {"name": "Пицца болоньезе"}, "ky": {"name": "Болоньезе пицца"}}},
+      {"name": "Cheese Pizza", "price": "590", "translations": {"ru": {"name": "Сырная пицца"}, "ky": {"name": "Сыр пицца"}}},
+      {"name": "Mushroom Pizza with Truffle Sauce", "price": "590", "translations": {"ru": {"name": "Грибная пицца с трюфельным соусом"}, "ky": {"name": "Трюфель соусу менен козу карын пицца"}}},
+      {"name": "Caesar Pizza", "description": "Chicken (600) or Shrimp (630)", "price": "600/630", "translations": {"ru": {"name": "Пицца Цезарь", "description": "С курицей (600) или креветками (630)"}, "ky": {"name": "Цезарь пицца", "description": "Тоок эти менен (600) же креветкалар менен (630)"}}},
+      {"name": "Pear & Blue Cheese Pizza", "price": "660", "translations": {"ru": {"name": "Пицца с грушей и дорблю"}, "ky": {"name": "Алмурут жана көк сыр менен пицца"}}}
+    ]
+  },
+  {
+    "category_en": "Rolls",
+    "category_ru": "Роллы",
+    "category_ky": "Роллдор",
+    "items": [
+      {"name": "Philadelphia Roll", "price": "600", "translations": {"ru": {"name": "Ролл Филадельфия"}, "ky": {"name": "Филадельфия роллу"}}},
+      {"name": "California Roll", "price": "560", "translations": {"ru": {"name": "Ролл Калифорния"}, "ky": {"name": "Калифорния роллу"}}},
+      {"name": "Kamchatka Crab Roll", "price": "580", "translations": {"ru": {"name": "Ролл Камчатский краб"}, "ky": {"name": "Камчатка крабы менен ролл"}}},
+      {"name": "Crispy Shrimp & Spicy Sauce Roll", "price": "580", "translations": {"ru": {"name": "Ролл с хрустящей креветкой и спайси соусом"}, "ky": {"name": "Кытырак креветка жана ачуу соус менен ролл"}}},
+      {"name": "Caesar Roll", "description": "Chicken (560) or Shrimp (600)", "price": "560/600", "translations": {"ru": {"name": "Цезарь ролл", "description": "С курицей (560) или креветками (600)"}, "ky": {"name": "Цезарь роллу", "description": "Тоок эти менен (560) же креветкалар менен (600)"}}},
+      {"name": "Maki", "description": "Avocado (180), Cucumber (180), Salmon (250)", "price": "180-250", "translations": {"ru": {"name": "Маки", "description": "Авокадо (180), Огурец (180), Лосось (250)"}, "ky": {"name": "Маки", "description": "Авокадо (180), Бадыраң (180), Лосось (250)"}}}
+    ]
+  },
+  {
+    "category_en": "Baked Goods & Desserts",
+    "category_ru": "Выпечка и Десерты",
+    "category_ky": "Бышырылган азыктар жана Десерттер",
+    "items": [
+      {"name": "Khachapuri with Cheese", "price": "490", "translations": {"ru": {"name": "Хачапури с сыром"}, "ky": {"name": "Сыр менен хачапури"}}},
+      {"name": "Khachapuri with Cheese & Spinach", "price": "500", "translations": {"ru": {"name": "Хачапури с сыром и шпинатом"}, "ky": {"name": "Сыр жана шпинат менен хачапури"}}},
+      {"name": "Brownie with Ice Cream", "price": "490", "translations": {"ru": {"name": "Брауни с мороженым"}, "ky": {"name": "Балмуздак менен брауни"}}},
+      {"name": "Mango Mille-Feuille", "price": "490", "translations": {"ru": {"name": "Манго мильфей"}, "ky": {"name": "Манго мильфейи"}}},
+      {"name": "Meringue Roll", "description": "Pecan or Mango-Passionfruit", "price": "350", "translations": {"ru": {"name": "Меренговый рулет", "description": "С пеканом или манго-маракуйя"}, "ky": {"name": "Меренге түрмөгү", "description": "Пекан же манго-маракуйя менен"}}},
+      {"name": "Crème Brûlée with Seasonal Berries", "price": "400", "translations": {"ru": {"name": "Крем-брюле с сезонными ягодами"}, "ky": {"name": "Сезондук мөмөлөр менен крем-брюле"}}},
+      {"name": "Bread", "description": "Sesame or Borodinsky (3 pcs)", "price": "60", "translations": {"ru": {"name": "Хлеб", "description": "Кунжутный или Бородинский (3 шт)"}, "ky": {"name": "Нан", "description": "Күнжүт же Бородино (3 даана)"}}}
+    ]
+  }
+]
