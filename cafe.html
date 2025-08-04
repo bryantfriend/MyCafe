@@ -9,8 +9,8 @@
 </head>
 <body class="bg-gray-100 text-gray-800">
 
-  <header class="bg-white shadow-md p-4 flex justify-between items-center">
-    <h1 class="text-xl font-bold">☕ MyCafe</h1>
+  <header class="bg-white shadow-md p-4 flex justify-between items-center sticky top-0 z-10">
+    <a href="index.html" class="text-xl font-bold">☕ MyCafe</a>
     <div>
       <select id="languageSelector" class="border rounded px-2 py-1">
         <option value="en">EN</option>
@@ -21,15 +21,21 @@
   </header>
 
   <main class="max-w-4xl mx-auto py-6 px-4">
-
     <div id="cafeInfo" class="mb-6">
       </div>
 
     <div id="menuSection">
       <h2 class="text-2xl font-semibold mb-4">📋 Menu</h2>
-      <div id="menuAccordion" class="space-y-2"></div>
-    </div>
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        
+        <div id="menuCategories" class="md:col-span-1">
+          </div>
 
+        <div id="menuItems" class="md:col-span-3">
+          </div>
+
+      </div>
+    </div>
   </main>
 
 </body>
