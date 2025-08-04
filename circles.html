@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MyCafe | Circles</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    .bg-cream {
+      background-color: #fefaf1;
+    }
+  </style>
+</head>
+<body class="bg-cream text-gray-800">
+
+  <header class="bg-white shadow-md p-4 flex justify-between items-center">
+    <h1 class="text-xl font-bold text-green-800">🌟 Cafe Circles</h1>
+    <select id="languageSelector" class="border rounded px-2 py-1">
+      <option value="en">🇬🇧</option>
+      <option value="ru">🇷🇺</option>
+      <option value="ky">🇰🇬</option>
+    </select>
+  </header>
+
+  <main class="max-w-5xl mx-auto p-6 bg-cream">
+    <div id="circlesContainer" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+  </main>
+
+  <script type="module" src="./js/circles.js"></script>
+</body>
+</html>

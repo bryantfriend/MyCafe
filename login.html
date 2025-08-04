@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login – MyCafe Admin</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+</head>
+<body class="bg-yellow-50 flex items-center justify-center h-screen">
+
+  <div class="bg-white rounded-lg shadow-md p-8 w-full max-w-md">
+    <h1 class="text-2xl font-bold mb-6 text-center">☕ MyCafe Admin Login</h1>
+
+    <div class="space-y-4">
+      <input type="email" id="email" placeholder="Email" class="w-full border px-4 py-2 rounded" />
+      <input type="password" id="password" placeholder="Password" class="w-full border px-4 py-2 rounded" />
+      <button id="loginBtn" class="w-full bg-orange-500 text-white py-2 px-4 rounded shadow hover:bg-orange-600 flex justify-center items-center gap-2">
+          🔐 <span>Log In</span>
+        </button>
+      <p id="errorMsg" class="text-red-600 text-sm text-center mt-2 hidden"></p>
+    </div>
+  </div>
+
+  <script type="module" src="/js/auth.js"></script>
+</body>
+</html>
+

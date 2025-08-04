@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MyCafe | View Cafe</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script type="module" src="./js/cafePage.js"></script>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+  <header class="bg-white shadow-md p-4 flex justify-between items-center">
+    <h1 class="text-xl font-bold">☕ MyCafe</h1>
+    <div>
+      <select id="languageSelector" class="border rounded px-2 py-1">
+        <option value="en">EN</option>
+        <option value="ru">RU</option>
+        <option value="ky">KY</option>
+      </select>
+    </div>
+  </header>
+
+  <main class="max-w-4xl mx-auto py-6 px-4">
+
+    <div id="cafeInfo" class="mb-6">
+      </div>
+
+    <div id="menuSection">
+      <h2 class="text-2xl font-semibold mb-4">📋 Menu</h2>
+      <div id="menuAccordion" class="space-y-2"></div>
+    </div>
+
+  </main>
+
+</body>
+</html>
