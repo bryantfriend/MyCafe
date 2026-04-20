@@ -5,37 +5,77 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>MyCafe | View Cafe</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
   <script type="module" src="./js/cafePage.js"></script>
 </head>
-<body class="bg-gray-100 text-gray-800">
+<body class="text-stone-800">
 
-  <header class="bg-white shadow-md p-4 flex justify-between items-center sticky top-0 z-10">
-    <a href="index.html" class="text-xl font-bold">☕ MyCafe</a>
-    <div>
-      <select id="languageSelector" class="border rounded px-2 py-1">
-        <option value="en">EN</option>
-        <option value="ru">RU</option>
-        <option value="ky">KY</option>
-      </select>
-    </div>
+  <header class="site-header">
+    <a href="index.html" class="brand-link">☕ <span class="text-xl font-bold">MyCafe</span></a>
+    <nav class="main-nav">
+      <a data-public-nav href="index.html#explore" class="hover:underline">Explore</a>
+      <a href="games/index.html" class="hover:underline">Games</a>
+      <a href="#russianLesson" class="hover:underline">Russian lesson</a>
+      <a href="#news" class="hover:underline">News</a>
+      <select id="languageSelector" aria-label="Language selector"></select>
+    </nav>
   </header>
 
-  <main class="max-w-4xl mx-auto py-6 px-4">
-    <div id="cafeInfo" class="mb-6">
+  <main class="max-w-5xl mx-auto py-6 px-4">
+    <section id="qrModeNotice" class="ad-slot hidden">
+      Cafe menu view
+    </section>
+
+    <section id="cafeInfo" class="search-panel mb-6"></section>
+
+    <section id="menuSection" class="mb-8">
+      <div class="section-heading">
+        <p class="eyebrow">Digital menu</p>
+        <h2>Menu</h2>
       </div>
+      <div class="grid grid-cols-1 md:grid-cols-4 md:gap-8">
+        <div id="menuCategories" class="md:col-span-1 sticky top-[68px] md:static bg-transparent z-10 p-2 md:p-0 flex flex-row md:flex-col overflow-x-auto gap-2"></div>
+        <div id="menuItems" class="md:col-span-3 mt-4 md:mt-0"></div>
+      </div>
+    </section>
 
-        <div id="menuSection">
-          <h2 class="text-2xl font-semibold mb-4">📋 Menu</h2>
-          <div class="grid grid-cols-1 md:grid-cols-4 md:gap-8">
+    <section id="reviewsSection" class="lesson-preview mb-8">
+      <div class="section-heading">
+        <p class="eyebrow">Reviews</p>
+        <h2>Share a visit</h2>
+      </div>
+      <form id="guestReviewForm" class="grid gap-3 md:grid-cols-2">
+        <input id="guestName" type="text" placeholder="Name" required>
+        <input id="guestEmail" type="email" placeholder="Email for edit link" required>
+        <select id="guestRating" required>
+          <option value="5">5 stars</option>
+          <option value="4">4 stars</option>
+          <option value="3">3 stars</option>
+          <option value="2">2 stars</option>
+          <option value="1">1 star</option>
+        </select>
+        <input id="guestPhotoUrl" type="url" placeholder="Photo URL optional">
+        <textarea id="guestReviewText" class="md:col-span-2" placeholder="Review" required></textarea>
+        <button class="primary-link md:col-span-2" type="submit">Send for approval</button>
+      </form>
+      <div id="reviewList" class="grid gap-3 mt-5"></div>
+    </section>
 
-            <div id="menuCategories" class="md:col-span-1 sticky top-[68px] md:static bg-gray-100 z-10 p-2 md:p-0 flex flex-row md:flex-col overflow-x-auto gap-2">
-              </div>
+    <section id="russianLesson" class="lesson-preview mb-8">
+      <p class="eyebrow">Oqu Way demo</p>
+      <h2>Cafe phrases</h2>
+      <div class="phrase-grid">
+        <article><strong>Я закажу латте.</strong><span>Ya zakazhu latte.</span><small>I will order a latte.</small></article>
+        <article><strong>Без сахара.</strong><span>Bez sakhara.</span><small>Without sugar.</small></article>
+        <article><strong>Можно с собой?</strong><span>Mozhno s soboy?</span><small>Can I take it to go?</small></article>
+      </div>
+    </section>
 
-            <div id="menuItems" class="md:col-span-3 mt-4 md:mt-0">
-              </div>
-
-          </div>
-        </div>
+    <section id="news" class="news-band">
+      <p class="eyebrow">Cafe updates</p>
+      <h2>Today at this cafe</h2>
+      <p id="cafeNews">Menu updates, game offers, and Circle announcements will appear here.</p>
+    </section>
   </main>
 
 </body>

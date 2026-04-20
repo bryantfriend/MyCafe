@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>MyCafe Admin Panel</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <link href="/css/adminPanel.css" rel="stylesheet" />
+</head>
+<body class="bg-gray-100 text-gray-800 font-sans">
+
+  <!-- Layout Wrapper -->
+  <div class="relative">
+
+    <!-- Mobile Topbar -->
+    <header class="fixed top-0 left-0 w-full bg-blue-900 text-white px-4 py-3 flex items-center justify-between md:hidden z-50">
+      <div class="text-lg font-bold">☕ MyCafe Admin</div>
+      <button id="mobileMenuToggle" class="text-2xl focus:outline-none">☰</button>
+    </header>
+
+    <!-- Mobile Drawer -->
+    <nav id="mobileDrawer" class="fixed top-0 left-0 w-full h-full bg-blue-900 text-white p-6 hidden z-50 md:hidden">
+      <button id="mobileClose" class="text-white text-2xl absolute top-4 right-4">&times;</button>
+      <ul class="mt-12 space-y-6 text-lg">
+        <li><button id="navHomeMobile" class="w-full text-left">☕ Dashboard</button></li>
+        <li><button id="navUsersMobile" class="w-full text-left">👥 Users</button></li>
+        <li><button id="navCafesMobile" class="w-full text-left">🏪 Cafes</button></li>
+        <li><button id="navReviewsMobile" class="w-full text-left">📝 Reviews</button></li>
+        <li><button id="navCirclesMobile" class="w-full text-left">🪑 Cafe Circles</button></li>
+        <li><button id="logoutBtnMobile" class="text-red-400 w-full text-left">🔒 Logout</button></li>
+      </ul>
+    </nav>
+
+    <!-- Desktop + Main Panel -->
+    <div class="flex">
+      <button id="logoutBtnTop" class="fixed top-4 right-4 z-40 bg-red-600 hover:bg-red-700 px-3 py-2 rounded text-white hidden md:block">🔒 Logout</button>
+
+      <!-- Desktop Sidebar -->
+      <aside id="sidebar" class="hidden md:flex md:flex-col md:w-64 md:h-screen bg-blue-900 text-white p-4 justify-between">
+        <div>
+          <button id="navHome" class="text-2xl font-bold mb-6 hover:underline text-left w-full">☕ Admin Panel</button>
+          <nav class="space-y-2">
+            <button class="navLink w-full text-left hover:bg-blue-700 px-3 py-2 rounded" id="navUsers">👥 Users</button>
+            <button class="navLink w-full text-left hover:bg-blue-700 px-3 py-2 rounded" id="navCafes">🏪 Cafes</button>
+            <button class="navLink w-full text-left hover:bg-blue-700 px-3 py-2 rounded" id="navReviews">📝 Reviews <span id="reviewAlert" class="ml-2"></span></button>
+            <button class="navLink w-full text-left hover:bg-blue-700 px-3 py-2 rounded" id="navCircles">🪑 Cafe Circles</button>
+          </nav>
+        </div>
+        <div class="mt-6">
+          <button id="logoutBtn" class="w-full bg-red-600 hover:bg-red-700 px-3 py-2 rounded text-white">🔒 Logout</button>
+        </div>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="flex-1 p-6 pt-16 md:pt-6 overflow-y-auto" id="adminContent">
+        <!-- JS will inject content here -->
+      </main>
+    </div>
+
+  </div> <!-- End Layout Wrapper -->
+
+  <!-- Modal Overlay -->
+  <div id="modalOverlay" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+    <div class="bg-white rounded-lg shadow-lg p-6 w-full max-w-md relative">
+      <button id="modalCloseBtn" class="absolute top-2 right-3 text-gray-600 hover:text-black text-xl">&times;</button>
+      <h3 id="modalTitle" class="text-xl font-bold mb-4"></h3>
+      <div id="modalBody" class="space-y-4">
+        <input id="modalNickname" type="text" placeholder="Nickname" class="w-full border px-3 py-2 rounded" />
+        <input id="modalEmail" type="email" placeholder="Email" class="w-full border px-3 py-2 rounded" />
+        <select id="modalRole" class="w-full border px-3 py-2 rounded">
+          <option value="user">User</option>
+          <option value="cafeOwner">Cafe Owner</option>
+          <option value="circleHost">Circle Host</option>
+          <option value="admin">Admin</option>
+        </select>
+        <label class="flex items-center gap-2">
+          <input type="checkbox" id="modalFlagged" class="accent-red-600" />
+          Temporarily Banned
+        </label>
+        <textarea id="modalAdminNotes" placeholder="Internal admin notes" class="w-full border px-3 py-2 rounded"></textarea>
+        <div class="grid grid-cols-1 gap-2">
+          <input id="modalAssignBadge" type="text" placeholder="Assign badge ID" class="w-full border px-3 py-2 rounded" />
+          <button id="modalPasswordResetBtn" type="button" class="bg-yellow-600 text-white px-3 py-2 rounded hover:bg-yellow-700">Send password reset</button>
+        </div>
+        <details class="bg-gray-50 rounded p-3">
+          <summary class="cursor-pointer font-semibold">Moderator tools</summary>
+          <div id="modalModerationTools" class="text-sm text-gray-700 mt-3">Open a user to load reviews and photos.</div>
+        </details>
+        <div class="text-sm text-gray-500">
+          <div>📅 Created: <span id="modalCreatedAt">-</span></div>
+          <div>⏱️ Last Login: <span id="modalLastLogin">-</span></div>
+          <div>🏅 Badges: <span id="modalBadgeCount">0</span></div>
+          <div>📝 Reviews: <span id="modalReviewCount">0</span></div>
+        </div>
+      </div>
+      <div class="flex justify-end mt-6">
+        <button id="modalSaveBtn" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Save</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Firebase Auth check -->
+  <script type="module">
+    import { onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js';
+    import { doc, getDoc } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js';
+    import { auth, db } from '../js/firebase-init.js';
+
+    onAuthStateChanged(auth, async user => {
+      if (!user) {
+        window.location.href = '/login.html?next=/admin/adminPanel.html';
+        return;
+      }
+
+      let role = 'user';
+      try {
+        const userSnap = await getDoc(doc(db, 'users', user.uid));
+        role = userSnap.exists() ? userSnap.data().role : 'user';
+      } catch (error) {
+        console.warn('Could not verify admin role.', error);
+      }
+      if (role !== 'admin') {
+        document.body.innerHTML = '<main class="p-8"><h1 class="text-2xl font-bold">Admin access required</h1><p class="mt-2">This panel is only available to MyCafe admins.</p><a class="text-blue-700 underline" href="/dashboard.html">Go to dashboard</a></main>';
+      }
+    });
+  </script>
+
+  <!-- Admin logic -->
+  <script type="module" src="/admin/adminPanel.js" defer></script>
+
+</body>
+</html>
