@@ -1,4 +1,5 @@
 import { db } from './firebase-init.js';
+import { supportedLanguages, getStoredLanguage, setStoredLanguage } from './i18n.js';
 import {
   collection,
   getDocs
@@ -6,28 +7,55 @@ import {
 
 const circlesContainer = document.getElementById('circlesContainer');
 const languageSelector = document.getElementById('languageSelector');
-let currentLanguage = 'en';
+let currentLanguage = getStoredLanguage();
 
 languageSelector.addEventListener('change', (e) => {
   currentLanguage = e.target.value;
+  setStoredLanguage(currentLanguage);
   renderCircles();
 });
 
+languageSelector.innerHTML = supportedLanguages.map(language => `
+  <option value="${language.code}" ${language.code === currentLanguage ? 'selected' : ''}>
+    ${language.label} - ${language.name}
+  </option>
+`).join('');
+
+const fallbackCircles = [
+  {
+    id: 'intro-to-motherhood',
+    title: 'Intro to Motherhood',
+    description: 'A warm Circle with shared food, small gifts, and guided conversation.',
+    image: 'assets/circles/intro_to_motherhood.png',
+    date: { seconds: Math.floor(Date.now() / 1000) + 604800 },
+    time: '16:00',
+    rsvpCount: 8,
+    cost: '600 som',
+    status: 'upcoming',
+    budget: { gifts: 1000, food: 2500, salary: 1500, total: 5000 }
+  }
+];
+
 async function getAllCircles() {
-  const circlesRef = collection(db, 'cafeCircles');
-  const snapshot = await getDocs(circlesRef);
-  const circles = [];
-  snapshot.forEach(doc => {
-    circles.push({ id: doc.id, ...doc.data() });
-  });
-  return circles;
+  try {
+    const circlesRef = collection(db, 'cafeCircles');
+    const snapshot = await getDocs(circlesRef);
+    const circles = [];
+    snapshot.forEach(doc => {
+      circles.push({ id: doc.id, ...doc.data() });
+    });
+    return circles.length ? circles : fallbackCircles;
+  } catch (error) {
+    console.warn('[circles] Firestore unavailable, using local Circle data.', error);
+    return fallbackCircles;
+  }
 }
 
 function createCircleCard(circle) {
   const title = circle.translations?.[currentLanguage]?.title || circle.title || 'Untitled';
   const description = circle.translations?.[currentLanguage]?.description || circle.description || '';
   const image = circle.image || '';
-  const date = new Date(circle.date?.seconds * 1000).toLocaleDateString();
+  const date = circle.date?.seconds ? new Date(circle.date.seconds * 1000).toLocaleDateString() : 'Date soon';
   const time = circle.time || '';
   const rsvpCount = circle.rsvpCount || 0;
   const cost = circle.cost || 'Free';
@@ -46,9 +74,12 @@ function createCircleCard(circle) {
     <div class="text-green-800 font-semibold mb-4">💸 ${cost}</div>
     <div class="flex gap-3">
       <a href="circle.html?id=${circle.id}" class="bg-green-700 text-white px-3 py-1 rounded hover:bg-green-800 transition">View Circle</a>
-      <button class="bg-white border border-green-700 text-green-700 px-3 py-1 rounded hover:bg-green-50 transition">Join</button>
+      <button class="join-circle bg-white border border-green-700 text-green-700 px-3 py-1 rounded hover:bg-green-50 transition">Join</button>
     </div>
   `;
+  card.querySelector('.join-circle').addEventListener('click', () => {
+    card.querySelector('.join-circle').textContent = 'Joined';
+  });
   return card;
 }
 

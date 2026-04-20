@@ -1,8 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <title>Title</title>
-    </head>
-    <body></body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MyCafe | User Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+  <header class="site-header">
+    <a href="index.html" class="brand-link">☕ <span class="text-xl font-bold">MyCafe</span></a>
+    <nav class="main-nav">
+      <a href="index.html#explore" class="hover:underline">Explore</a>
+      <a href="circles.html" class="hover:underline">Cafe Circles</a>
+      <a href="games/index.html" class="hover:underline">Games</a>
+      <a href="login.html" class="primary-link">Log in</a>
+    </nav>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 py-8">
+    <section class="intro-panel !py-6">
+      <p class="eyebrow">User dashboard</p>
+      <h1>Your reviews, badges, quests, and privacy.</h1>
+    </section>
+
+    <section id="accountNotice" class="ad-slot hidden"></section>
+
+    <section class="workspace-grid !px-0">
+      <form id="profileForm" class="search-panel">
+        <p class="eyebrow">Profile</p>
+        <h2>Account settings</h2>
+        <label><span>Nickname</span><input id="nickname" type="text" placeholder="Nickname"></label>
+        <label><span>Profile picture URL</span><input id="profilePicUrl" type="url" placeholder="https://..."></label>
+        <label><span>Bio</span><textarea id="bio" rows="4" placeholder="Short bio"></textarea></label>
+        <label><span>Language</span><select id="language"></select></label>
+        <button class="primary-link mt-4" type="submit">Save profile</button>
+      </form>
+
+      <section class="search-panel">
+        <p class="eyebrow">Privacy first</p>
+        <h2>Public visibility</h2>
+        <div id="privacySettings" class="grid gap-3 mt-4"></div>
+      </section>
+    </section>
+
+    <section class="feature-strip !px-0">
+      <article class="feature-card">
+        <span>Level</span>
+        <strong id="levelLabel">Level 1</strong>
+        <div class="w-full bg-gray-200 rounded h-3 overflow-hidden">
+          <div id="xpBar" class="bg-green-700 h-3" style="width: 0%"></div>
+        </div>
+        <small id="xpLabel">0 XP</small>
+      </article>
+      <article class="feature-card">
+        <span>Auto approval</span>
+        <strong id="approvalLabel">Manual moderation</strong>
+        <small>Level 2 unlocks automatic review approval for clean accounts.</small>
+      </article>
+      <article class="feature-card">
+        <span>Trust</span>
+        <strong id="trustLabel">Clean account</strong>
+        <small>Flagged accounts return to manual review until re-qualified.</small>
+      </article>
+    </section>
+
+    <section class="content-section !px-0">
+      <div class="section-heading">
+        <p class="eyebrow">Quest center</p>
+        <h2>Active quests</h2>
+      </div>
+      <div id="questsList" class="cafe-grid"></div>
+    </section>
+
+    <section class="content-section !px-0">
+      <div class="section-heading">
+        <p class="eyebrow">Badge library</p>
+        <h2>Earned and locked badges</h2>
+      </div>
+      <div id="badgeGrid" class="cafe-grid"></div>
+    </section>
+
+    <section class="workspace-grid !px-0">
+      <section class="search-panel">
+        <p class="eyebrow">Reviews</p>
+        <h2>Your reviews</h2>
+        <select id="reviewSort" class="mt-3">
+          <option value="newest">Newest</option>
+          <option value="oldest">Oldest</option>
+          <option value="liked">Most liked</option>
+        </select>
+        <div id="userReviews" class="grid gap-3 mt-4"></div>
+      </section>
+      <section class="search-panel">
+        <p class="eyebrow">Favorites & visits</p>
+        <h2>Saved cafes</h2>
+        <div id="favoritesList" class="grid gap-3 mt-4"></div>
+      </section>
+    </section>
+
+    <section class="content-section !px-0">
+      <div class="section-heading">
+        <p class="eyebrow">Photo gallery</p>
+        <h2>Uploaded review photos</h2>
+      </div>
+      <div id="photoGallery" class="cafe-grid"></div>
+    </section>
+  </main>
+
+  <script type="module" src="js/dashboard.js"></script>
+</body>
+
 </html>
