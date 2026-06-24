@@ -1,0 +1,145 @@
+/* Sidebar styling */
+aside {
+  background-color: #1e3a8a; /* blue-800 */
+  color: white;
+}
+
+/* Logout button */
+#logoutBtn {
+  transition: background-color 0.2s ease-in-out;
+}
+
+/* Highlight for active nav (optional JS toggle later) */
+.active-nav {
+  background-color: #2563eb; /* blue-600 */
+  font-weight: bold;
+}
+
+/* Admin content area */
+#adminContent {
+  background-color: #f9fafb; /* gray-100 */
+}
+
+/* Review alert emoji */
+#reviewAlert {
+  font-size: 1.25rem;
+  line-height: 1.5rem;
+}
+
+/* Card shadows and spacing */
+.shadow {
+  box-shadow: 0 1px 2px rgba(0,0,0,0.06), 0 1px 4px rgba(0,0,0,0.1);
+}
+
+.rounded {
+  border-radius: 0.375rem;
+}
+
+/* Input & button consistency */
+input[type="text"],
+input[type="number"],
+input[type="date"],
+select {
+  border: 1px solid #d1d5db; /* gray-300 */
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+}
+
+button {
+  transition: background-color 0.2s ease;
+  cursor: pointer;
+}
+
+/* Hover effects */
+button:hover {
+  opacity: 0.9;
+}
+
+#mobileDrawer {
+  background-color: #1e3a8a; /* This ensures the dark blue background is always applied */
+}
+
+.translation-summary-grid {
+  display: grid;
+  gap: 0.875rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.owner-analytics-card {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  display: grid;
+  gap: 0.35rem;
+  padding: 1rem;
+}
+
+.owner-analytics-card span {
+  color: #92400e;
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.owner-analytics-card strong {
+  color: #111827;
+  font-size: 1.5rem;
+}
+
+.owner-analytics-card small {
+  color: #6b7280;
+}
+
+.translation-status-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin: 0.75rem 0;
+}
+
+.translation-status-pill {
+  border-radius: 999px;
+  font-size: 0.68rem;
+  font-weight: 900;
+  padding: 0.25rem 0.45rem;
+  text-transform: uppercase;
+}
+
+.translation-status-pill.approved {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.translation-status-pill.needs-review,
+.translation-status-pill.partial {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.translation-status-pill.missing {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.review-badge-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin: 0.5rem 0;
+}
+
+.review-badge-row span {
+  background: #dcfce7;
+  border-radius: 999px;
+  color: #166534;
+  font-size: 0.68rem;
+  font-weight: 900;
+  padding: 0.25rem 0.45rem;
+  text-transform: uppercase;
+}
+
+.review-badge-row span.risk {
+  background: #fee2e2;
+  color: #991b1b;
+}

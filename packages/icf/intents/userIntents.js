@@ -1,0 +1,3 @@
+const userIntents = {};
+
+export { userIntents };

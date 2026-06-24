@@ -1,0 +1,3 @@
+const circleProcessors = {};
+
+export { circleProcessors };

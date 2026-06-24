@@ -1,0 +1,3 @@
+const analyticsIntents = {};
+
+export { analyticsIntents };

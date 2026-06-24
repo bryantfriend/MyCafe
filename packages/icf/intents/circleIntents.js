@@ -1,0 +1,3 @@
+const circleIntents = {};
+
+export { circleIntents };

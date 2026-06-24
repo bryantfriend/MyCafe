@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MyCafe | Owner Portal</title>
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#1f5c45">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body class="text-stone-800">
+  <header class="site-header">
+    <a href="index.html" class="brand-link">
+      <img src="assets/logo.png" alt="MyCafe Logo" class="w-8 h-8" />
+      <span class="text-xl font-bold">MyCafe Owner</span>
+    </a>
+    <nav class="main-nav">
+      <a href="index.html#explore" class="hover:underline">Explore</a>
+      <a href="dashboard.html" class="hover:underline">User dashboard</a>
+      <a href="admin/adminPanel.html" class="hover:underline">Admin</a>
+      <button id="ownerLogoutBtn" class="secondary-link" type="button">Log out</button>
+    </nav>
+  </header>
+
+  <main class="owner-shell">
+    <section class="owner-hero">
+      <div>
+        <p class="eyebrow">Cafe owner portal</p>
+        <h1>Run your listing, menu, QR code, reviews, and growth tools.</h1>
+      </div>
+      <div class="owner-selector">
+        <label for="ownerCafeSelect">
+          <span>Cafe</span>
+          <select id="ownerCafeSelect"></select>
+        </label>
+        <a id="ownerPublicMenuLink" class="primary-link" href="cafe.html?id=mano">View public menu</a>
+      </div>
+    </section>
+
+    <section id="ownerStatus" class="ad-slot" aria-live="polite">Loading owner portal...</section>
+
+    <section class="owner-metrics" aria-label="Cafe summary">
+      <article class="feature-card">
+        <span>Menu items</span>
+        <strong id="metricMenuItems">0</strong>
+        <small>Visible items on the phone menu.</small>
+      </article>
+      <article class="feature-card">
+        <span>Reviews</span>
+        <strong id="metricReviews">0</strong>
+        <small id="metricReviewsDetail">No review data yet.</small>
+      </article>
+      <article class="feature-card">
+        <span>Premium</span>
+        <strong id="metricPremium">Free</strong>
+        <small id="metricPremiumDetail">Upgrade tools appear here.</small>
+      </article>
+      <article class="feature-card">
+        <span>QR menu</span>
+        <strong id="metricQr">Ready</strong>
+        <small>Shareable link for table signs and stickers.</small>
+      </article>
+    </section>
+
+    <nav class="owner-tabs" aria-label="Owner portal sections">
+      <button class="owner-tab active" type="button" data-owner-tab="profile">Profile</button>
+      <button class="owner-tab" type="button" data-owner-tab="menu">Menu</button>
+      <button class="owner-tab" type="button" data-owner-tab="photos">Photos</button>
+      <button class="owner-tab" type="button" data-owner-tab="qr">QR code</button>
+      <button class="owner-tab" type="button" data-owner-tab="premium">Premium</button>
+      <button class="owner-tab" type="button" data-owner-tab="translations">Translations</button>
+      <button class="owner-tab" type="button" data-owner-tab="reviews">Reviews</button>
+      <button class="owner-tab" type="button" data-owner-tab="analytics">Analytics</button>
+    </nav>
+
+    <section id="ownerPanelProfile" class="owner-panel active">
+      <form id="ownerProfileForm" class="search-panel">
+        <div class="section-heading">
+          <p class="eyebrow">Business profile</p>
+          <h2>Cafe details</h2>
+        </div>
+        <div class="owner-form-grid">
+          <label><span>Cafe name</span><input id="ownerCafeName" type="text" required></label>
+          <label><span>Slug</span><input id="ownerCafeSlug" type="text" required></label>
+          <label class="owner-wide"><span>Description</span><textarea id="ownerCafeDescription" rows="4"></textarea></label>
+          <label><span>Address</span><input id="ownerCafeAddress" type="text"></label>
+          <label><span>Tags</span><input id="ownerCafeTags" type="text" placeholder="coffee, breakfast, desserts"></label>
+          <label><span>Price tier</span>
+            <select id="ownerCafePriceTier">
+              <option value="budget">Budget</option>
+              <option value="mid">Mid-range</option>
+              <option value="premium">Premium</option>
+            </select>
+          </label>
+          <label><span>Location area</span>
+            <select id="ownerCafeLocationArea">
+              <option value="center">City center</option>
+              <option value="south">South side</option>
+              <option value="east">East side</option>
+              <option value="west">West side</option>
+            </select>
+          </label>
+          <label><span>Instagram</span><input id="ownerCafeInstagram" type="text" placeholder="@mycafe"></label>
+          <label><span>Phone</span><input id="ownerCafePhone" type="tel"></label>
+          <label><span>Daily hours</span><input id="ownerCafeHours" type="text" placeholder="Mon-Sun 08:00-22:00"></label>
+          <label><span>Online order URL</span><input id="ownerCafeOrderUrl" type="url" placeholder="https://..."></label>
+          <label class="owner-wide"><span>Call waiter URL</span><input id="ownerCafeWaiterUrl" type="url" placeholder="https://..."></label>
+          <label class="owner-wide"><span>Cover image URL</span><input id="ownerCafeImageUrl" type="url" placeholder="https://..."></label>
+        </div>
+        <button class="primary-link mt-4" type="submit">Save profile</button>
+      </form>
+    </section>
+
+    <section id="ownerPanelMenu" class="owner-panel">
+      <div class="search-panel">
+        <div class="owner-panel-header">
+          <div>
+            <p class="eyebrow">Digital menu</p>
+            <h2>Categories and items</h2>
+          </div>
+          <div class="owner-actions">
+            <button id="ownerAddCategoryBtn" class="secondary-link" type="button">Add category</button>
+            <button id="ownerSaveMenuBtn" class="primary-link" type="button">Save menu</button>
+          </div>
+        </div>
+        <div id="ownerMenuEditor" class="owner-menu-editor"></div>
+      </div>
+    </section>
+
+    <section id="ownerPanelPhotos" class="owner-panel">
+      <div class="search-panel">
+        <div class="owner-panel-header">
+          <div>
+            <p class="eyebrow">Photos</p>
+            <h2>Cover, logo, and gallery</h2>
+          </div>
+        </div>
+        <form id="ownerPhotoForm" class="owner-upload-row">
+          <label><span>Upload cafe photo</span><input id="ownerPhotoFile" type="file" accept="image/*"></label>
+          <label><span>Or add image URL</span><input id="ownerPhotoUrl" type="url" placeholder="https://..."></label>
+          <button class="primary-link" type="submit">Add photo</button>
+        </form>
+        <div id="ownerPhotoGrid" class="cafe-grid mt-5"></div>
+      </div>
+    </section>
+
+    <section id="ownerPanelQr" class="owner-panel">
+      <div class="workspace-grid !px-0">
+        <section class="search-panel">
+          <p class="eyebrow">QR code</p>
+          <h2>Phone menu link</h2>
+          <p id="ownerQrUrl" class="owner-url-box"></p>
+          <div class="owner-actions mt-4">
+            <button id="ownerCopyQrLinkBtn" class="secondary-link" type="button">Copy link</button>
+            <a id="ownerOpenQrBtn" class="primary-link" href="cafe.html?id=mano&qr=1">Open QR view</a>
+          </div>
+        </section>
+        <section class="map-panel">
+          <p class="eyebrow">Preview</p>
+          <h2>Printable QR</h2>
+          <img id="ownerQrImage" class="owner-qr-image" alt="Cafe QR code preview">
+          <a id="ownerDownloadQrBtn" class="secondary-link mt-4" href="#" download="mycafe-qr.png">Download QR image</a>
+        </section>
+      </div>
+    </section>
+
+    <section id="ownerPanelPremium" class="owner-panel">
+      <div class="search-panel">
+        <p class="eyebrow">Monetization foundation</p>
+        <h2>Premium tools</h2>
+        <div id="ownerPremiumGrid" class="owner-premium-grid"></div>
+      </div>
+    </section>
+
+    <section id="ownerPanelReviews" class="owner-panel">
+      <div class="search-panel">
+        <div class="owner-panel-header">
+          <div>
+            <p class="eyebrow">Reviews</p>
+            <h2>Guest feedback</h2>
+          </div>
+          <select id="ownerReviewFilter">
+            <option value="">All reviews</option>
+            <option value="pending">Pending</option>
+            <option value="approved">Approved</option>
+            <option value="flagged">Flagged</option>
+          </select>
+        </div>
+        <div id="ownerReviewList" class="grid gap-3"></div>
+      </div>
+    </section>
+
+    <section id="ownerPanelTranslations" class="owner-panel">
+      <div class="search-panel">
+        <div class="owner-panel-header">
+          <div>
+            <p class="eyebrow">Translation engine</p>
+            <h2>Coverage and drafts</h2>
+          </div>
+          <div class="owner-actions">
+            <button id="ownerDraftTranslationsBtn" class="secondary-link" type="button">Draft missing translations</button>
+            <button id="ownerSaveTranslationReviewBtn" class="primary-link" type="button">Save review statuses</button>
+          </div>
+        </div>
+        <div id="ownerTranslationSummary" class="translation-summary-grid"></div>
+        <div id="ownerTranslationList" class="grid gap-3 mt-4"></div>
+      </div>
+    </section>
+
+    <section id="ownerPanelAnalytics" class="owner-panel">
+      <div class="search-panel">
+        <p class="eyebrow">Analytics</p>
+        <h2>Growth snapshot</h2>
+        <div id="ownerAnalyticsGrid" class="owner-analytics-grid"></div>
+      </div>
+    </section>
+  </main>
+
+  <script type="module" src="js/ownerDashboard.js"></script>
+  <script type="module" src="js/pwa.js"></script>
+</body>
+
+</html>
