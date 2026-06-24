@@ -1,0 +1,3 @@
+const qrIntents = {};
+
+export { qrIntents };

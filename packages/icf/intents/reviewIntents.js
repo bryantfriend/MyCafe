@@ -1,0 +1,3 @@
+const reviewIntents = {};
+
+export { reviewIntents };

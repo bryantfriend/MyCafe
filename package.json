@@ -1,4 +1,17 @@
 {
+  "name": "mycafe-platform",
+  "version": "0.1.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "check": "node scripts/check-js.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "build": "npm run check && npm test",
+    "optimize:images": "node scripts/optimize-images.mjs",
+    "deploy": "firebase deploy",
+    "deploy:hosting": "firebase deploy --only hosting",
+    "deploy:rules": "firebase deploy --only firestore:rules,storage"
+  },
   "dependencies": {
     "firebase": "^12.0.0"
   }

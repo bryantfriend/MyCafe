@@ -1,0 +1,37 @@
+{
+  "name": "MyCafe Platform",
+  "short_name": "MyCafe",
+  "description": "Cafe discovery, QR menus, Circles, games, reviews, and owner tools.",
+  "start_url": "/index.html",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#f4eee6",
+  "theme_color": "#1f5c45",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/assets/logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/assets/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Open QR menu",
+      "url": "/cafe.html?id=mano&qr=1",
+      "description": "Open the default QR menu."
+    },
+    {
+      "name": "Cafe Circles",
+      "url": "/circles.html",
+      "description": "Browse paid social cafe events."
+    }
+  ]
+}
