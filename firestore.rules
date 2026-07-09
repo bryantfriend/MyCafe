@@ -1,0 +1,153 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() {
+      return request.auth != null;
+    }
+
+    function userDoc(uid) {
+      return get(/databases/$(database)/documents/users/$(uid));
+    }
+
+    function isAdmin() {
+      return signedIn() && userDoc(request.auth.uid).data.role == "admin";
+    }
+
+    function isCafeOwner(cafeId) {
+      return signedIn()
+        && exists(/databases/$(database)/documents/cafes/$(cafeId))
+        && (
+          get(/databases/$(database)/documents/cafes/$(cafeId)).data.ownerId == request.auth.uid
+          || request.auth.uid in get(/databases/$(database)/documents/cafes/$(cafeId)).data.extraAdmins
+        );
+    }
+
+    function hasOnlyChanged(allowedFields) {
+      return request.resource.data.diff(resource.data).changedKeys().hasOnly(allowedFields);
+    }
+
+    function hasOnlySafeAnalyticsFields() {
+      return request.resource.data.keys().hasOnly([
+        "type",
+        "eventName",
+        "eventType",
+        "cafeId",
+        "cafeName",
+        "circleId",
+        "gameId",
+        "itemId",
+        "itemName",
+        "category",
+        "language",
+        "query",
+        "resultsCount",
+        "seats",
+        "linkType",
+        "linkLabel",
+        "urlHost",
+        "userId",
+        "path",
+        "source",
+        "metadata",
+        "createdAt"
+      ]);
+    }
+
+    function isSafeOrderLinkClickAnalytics() {
+      return hasOnlySafeAnalyticsFields()
+        && request.resource.data.type == "orderLinkClick"
+        && request.resource.data.eventType == "orderLinkClick"
+        && request.resource.data.cafeId is string
+        && request.resource.data.itemId is string
+        && request.resource.data.linkType in ["whatsapp", "telegram", "glovo", "yandex", "twogis", "googleMaps", "mbank", "custom"]
+        && request.resource.data.linkLabel is string
+        && request.resource.data.urlHost is string
+        && request.resource.data.source is string;
+    }
+
+    match /users/{userId} {
+      allow read: if isAdmin() || (signedIn() && request.auth.uid == userId);
+      allow create: if signedIn() && request.auth.uid == userId
+        && request.resource.data.role in ["user", "cafeOwner", "circleHost"];
+      allow update: if isAdmin()
+        || (signedIn()
+          && request.auth.uid == userId
+          && !request.resource.data.diff(resource.data).changedKeys().hasAny(["role", "flagged", "adminNotes"]));
+      allow delete: if isAdmin();
+    }
+
+    match /cafes/{cafeId} {
+      allow read: if true;
+      allow create: if isAdmin();
+      allow update: if isAdmin()
+        || (isCafeOwner(cafeId)
+          && !request.resource.data.diff(resource.data).changedKeys().hasAny([
+            "ownerId",
+            "extraAdmins",
+            "monetization",
+            "premiumGamesEnabled",
+            "premiumLessonsEnabled",
+            "premiumAnalyticsEnabled",
+            "premiumGamesUntil",
+            "premiumLessonsUntil",
+            "premiumAnalyticsUntil"
+          ]));
+      allow delete: if isAdmin();
+    }
+
+    match /reviews/{reviewId} {
+      allow read: if resource.data.approved == true || isAdmin() || isCafeOwner(resource.data.cafeId) || (signedIn() && resource.data.userId == request.auth.uid);
+      allow create: if request.resource.data.cafeId is string
+        && request.resource.data.rating is number
+        && request.resource.data.rating >= 1
+        && request.resource.data.rating <= 5
+        && request.resource.data.approved == false;
+      allow update: if isAdmin()
+        || isCafeOwner(resource.data.cafeId)
+        || (signedIn()
+          && resource.data.userId == request.auth.uid
+          && hasOnlyChanged(["text", "imageUrl", "rating", "editedAt"]));
+      allow delete: if isAdmin();
+    }
+
+    match /cafeCircles/{circleId} {
+      allow read: if true;
+      allow create: if signedIn() && (isAdmin() || userDoc(request.auth.uid).data.role in ["circleHost", "admin"]);
+      allow update: if isAdmin()
+        || (signedIn() && resource.data.hostId == request.auth.uid)
+        || hasOnlyChanged(["rsvp", "rsvpCount"]);
+      allow delete: if isAdmin();
+    }
+
+    match /analyticsEvents/{eventId} {
+      allow read: if isAdmin() || isCafeOwner(resource.data.cafeId);
+      allow create: if request.resource.data.type is string
+        && request.resource.data.type in [
+          "cafe-view",
+          "menu-view",
+          "menu-scan",
+          "qr-open",
+          "menu-item-view",
+          "language-usage",
+          "search",
+          "favorite",
+          "review-submit",
+          "circle-rsvp",
+          "game-engagement"
+        ]
+        || isSafeOrderLinkClickAnalytics();
+      allow update, delete: if isAdmin();
+    }
+
+    match /trustedWrites/{writeId} {
+      allow read, write: if false;
+    }
+
+    match /{document=**} {
+      allow read, write: if isAdmin();
+    }
+  }
+}
+
+
