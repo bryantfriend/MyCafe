@@ -4,26 +4,34 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Login – MyCafe</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#047857">
+  <link rel="stylesheet" href="css/style.css" />
 </head>
-<body class="bg-yellow-50 flex items-center justify-center h-screen">
+<body style="display: flex; align-items: center; justify-content: center; min-height: 100vh; background: var(--bg-secondary); margin: 0; padding: var(--space-4);">
 
-  <div class="bg-white rounded-lg shadow-md p-8 w-full max-w-md">
-    <h1 class="text-2xl font-bold mb-2 text-center">☕ MyCafe Login</h1>
-    <p class="text-sm text-gray-600 text-center mb-6">Users, cafe owners, hosts, and admins</p>
+  <div style="background: var(--bg-surface); border: 1px solid var(--border-light); border-radius: var(--radius-xl); box-shadow: var(--shadow-float); padding: var(--space-8); width: 100%; max-width: 400px; animation: fadeIn var(--transition-spring);">
+    <div style="text-align: center; margin-bottom: var(--space-6);">
+      <h1 style="font-size: 1.8rem; font-weight: 800; color: var(--text-primary); margin: 0 0 var(--space-2); letter-spacing: -0.02em;">☕ MyCafe Login</h1>
+      <p style="color: var(--text-secondary); font-size: 0.95rem; margin: 0;">Users, cafe owners, hosts, and admins</p>
+    </div>
 
-    <form id="loginForm" class="space-y-4">
-      <input type="email" id="email" placeholder="Email" autocomplete="email" required class="w-full border px-4 py-2 rounded" />
-      <input type="password" id="password" placeholder="Password" autocomplete="current-password" required class="w-full border px-4 py-2 rounded" />
-      <button id="loginBtn" type="submit" class="w-full bg-orange-500 text-white py-2 px-4 rounded shadow hover:bg-orange-600 flex justify-center items-center gap-2 disabled:opacity-60">
-          🔐 <span>Log In</span>
-        </button>
-      <p id="errorMsg" class="text-red-600 text-sm text-center mt-2 hidden" aria-live="polite"></p>
-      <p class="text-sm text-center text-gray-600">New here? <a href="register.html" class="text-orange-700 underline">Create a user account</a></p>
+    <form id="loginForm" style="display: grid; gap: var(--space-4);">
+      <input type="email" id="email" placeholder="Email" autocomplete="email" required style="padding: 14px; font-size: 1rem;" />
+      <input type="password" id="password" placeholder="Password" autocomplete="current-password" required style="padding: 14px; font-size: 1rem;" />
+      
+      <button id="loginBtn" type="submit" class="primary-link" style="width: 100%; padding: 14px; font-size: 1.05rem; margin-top: var(--space-2);">
+          🔐 <span style="margin-left: 8px;">Log In</span>
+      </button>
+      
+      <p id="errorMsg" class="hidden" aria-live="polite" style="color: var(--color-danger); background: var(--color-danger-light); padding: var(--space-3); border-radius: var(--radius-sm); text-align: center; font-size: 0.9rem; font-weight: 600; margin: 0;"></p>
+      
+      <p style="text-align: center; font-size: 0.95rem; color: var(--text-secondary); margin-top: var(--space-4);">
+        New here? <a href="register.html" style="color: var(--color-brand); font-weight: 600;">Create a user account</a>
+      </p>
     </form>
   </div>
 
   <script type="module" src="/js/auth.js"></script>
 </body>
 </html>
-

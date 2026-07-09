@@ -4,103 +4,93 @@
   <meta charset="UTF-8" />
   <title>MyCafe Admin Panel</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
-  <link href="/css/adminPanel.css" rel="stylesheet" />
+  <meta name="theme-color" content="#047857">
+  <link rel="stylesheet" href="/css/style.css" />
+  <style>
+    /* Admin specific layout */
+    .admin-layout { display: flex; min-height: 100vh; }
+    .admin-sidebar { width: 260px; background: #0f172a; color: white; display: flex; flex-direction: column; padding: var(--space-4); }
+    .admin-main { flex: 1; padding: var(--space-6); background: var(--bg-secondary); overflow-y: auto; height: 100vh; }
+    .admin-nav-link { display: block; padding: var(--space-3); color: #cbd5e1; border-radius: var(--radius-sm); margin-bottom: var(--space-2); text-align: left; background: transparent; border: 0; width: 100%; cursor: pointer; transition: all var(--transition-fast); }
+    .admin-nav-link:hover, .admin-nav-link.active { background: #1e293b; color: white; }
+    .admin-mobile-topbar { display: none; background: #0f172a; color: white; padding: var(--space-4); justify-content: space-between; align-items: center; }
+    @media (max-width: 768px) {
+      .admin-layout { flex-direction: column; }
+      .admin-sidebar { display: none; width: 100%; position: fixed; inset: 0; z-index: 100; }
+      .admin-sidebar.open { display: flex; }
+      .admin-mobile-topbar { display: flex; }
+      .admin-main { padding-top: var(--space-4); height: auto; }
+    }
+  </style>
 </head>
-<body class="bg-gray-100 text-gray-800 font-sans">
+<body>
 
-  <!-- Layout Wrapper -->
-  <div class="relative">
-
-    <!-- Mobile Topbar -->
-    <header class="fixed top-0 left-0 w-full bg-blue-900 text-white px-4 py-3 flex items-center justify-between md:hidden z-50">
-      <div class="text-lg font-bold">☕ MyCafe Admin</div>
-      <button id="mobileMenuToggle" class="text-2xl focus:outline-none">☰</button>
+  <div class="admin-layout">
+    <header class="admin-mobile-topbar">
+      <div style="font-weight: bold; font-size: 1.2rem;">☕ MyCafe Admin</div>
+      <button id="mobileMenuToggle" style="background: transparent; border: 0; color: white; font-size: 1.5rem; cursor: pointer;">☰</button>
     </header>
 
-    <!-- Mobile Drawer -->
-    <nav id="mobileDrawer" class="fixed top-0 left-0 w-full h-full bg-blue-900 text-white p-6 hidden z-50 md:hidden">
-      <button id="mobileClose" class="text-white text-2xl absolute top-4 right-4">&times;</button>
-      <ul class="mt-12 space-y-6 text-lg">
-        <li><button id="navHomeMobile" class="w-full text-left">☕ Dashboard</button></li>
-        <li><button id="navUsersMobile" class="w-full text-left">👥 Users</button></li>
-        <li><button id="navCafesMobile" class="w-full text-left">🏪 Cafes</button></li>
-        <li><button id="navReviewsMobile" class="w-full text-left">📝 Reviews</button></li>
-        <li><button id="navCirclesMobile" class="w-full text-left">🪑 Cafe Circles</button></li>
-        <li><button id="logoutBtnMobile" class="text-red-400 w-full text-left">🔒 Logout</button></li>
-      </ul>
-    </nav>
+    <aside id="sidebar" class="admin-sidebar">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-6);">
+        <button id="navHome" style="background: transparent; border: 0; color: white; font-size: 1.4rem; font-weight: bold; cursor: pointer; text-align: left;">☕ Admin Panel</button>
+        <button id="mobileClose" style="display: none; background: transparent; border: 0; color: white; font-size: 1.5rem; cursor: pointer;">&times;</button>
+      </div>
+      <nav style="flex: 1;">
+        <button class="admin-nav-link navLink" id="navUsers">👥 Users</button>
+        <button class="admin-nav-link navLink" id="navCafes">🏪 Cafes</button>
+        <button class="admin-nav-link navLink" id="navReviews">📝 Reviews <span id="reviewAlert" style="margin-left: 8px;"></span></button>
+        <button class="admin-nav-link navLink" id="navCircles">🪑 Cafe Circles</button>
+      </nav>
+      <div style="margin-top: auto;">
+        <button id="logoutBtn" style="width: 100%; padding: var(--space-3); background: var(--color-danger); color: white; border: 0; border-radius: var(--radius-sm); font-weight: bold; cursor: pointer;">🔒 Logout</button>
+      </div>
+    </aside>
 
-    <!-- Desktop + Main Panel -->
-    <div class="flex">
-      <button id="logoutBtnTop" class="fixed top-4 right-4 z-40 bg-red-600 hover:bg-red-700 px-3 py-2 rounded text-white hidden md:block">🔒 Logout</button>
-
-      <!-- Desktop Sidebar -->
-      <aside id="sidebar" class="hidden md:flex md:flex-col md:w-64 md:h-screen bg-blue-900 text-white p-4 justify-between">
-        <div>
-          <button id="navHome" class="text-2xl font-bold mb-6 hover:underline text-left w-full">☕ Admin Panel</button>
-          <nav class="space-y-2">
-            <button class="navLink w-full text-left hover:bg-blue-700 px-3 py-2 rounded" id="navUsers">👥 Users</button>
-            <button class="navLink w-full text-left hover:bg-blue-700 px-3 py-2 rounded" id="navCafes">🏪 Cafes</button>
-            <button class="navLink w-full text-left hover:bg-blue-700 px-3 py-2 rounded" id="navReviews">📝 Reviews <span id="reviewAlert" class="ml-2"></span></button>
-            <button class="navLink w-full text-left hover:bg-blue-700 px-3 py-2 rounded" id="navCircles">🪑 Cafe Circles</button>
-          </nav>
-        </div>
-        <div class="mt-6">
-          <button id="logoutBtn" class="w-full bg-red-600 hover:bg-red-700 px-3 py-2 rounded text-white">🔒 Logout</button>
-        </div>
-      </aside>
-
-      <!-- Main Content -->
-      <main class="flex-1 p-6 pt-16 md:pt-6 overflow-y-auto" id="adminContent">
-        <!-- JS will inject content here -->
-      </main>
-    </div>
-
-  </div> <!-- End Layout Wrapper -->
+    <main id="adminContent" class="admin-main">
+      <!-- JS will inject content here -->
+    </main>
+  </div>
 
   <!-- Modal Overlay -->
-  <div id="modalOverlay" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center">
-    <div class="bg-white rounded-lg shadow-lg p-6 w-full max-w-md relative">
-      <button id="modalCloseBtn" class="absolute top-2 right-3 text-gray-600 hover:text-black text-xl">&times;</button>
-      <h3 id="modalTitle" class="text-xl font-bold mb-4"></h3>
-      <div id="modalBody" class="space-y-4">
-        <input id="modalNickname" type="text" placeholder="Nickname" class="w-full border px-3 py-2 rounded" />
-        <input id="modalEmail" type="email" placeholder="Email" class="w-full border px-3 py-2 rounded" />
-        <select id="modalRole" class="w-full border px-3 py-2 rounded">
+  <div id="modalOverlay" class="hidden" style="position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 200; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(4px);">
+    <div style="background: white; border-radius: var(--radius-lg); padding: var(--space-6); width: 100%; max-width: 500px; position: relative; box-shadow: var(--shadow-float);">
+      <button id="modalCloseBtn" style="position: absolute; top: var(--space-4); right: var(--space-4); background: transparent; border: 0; font-size: 1.5rem; cursor: pointer;">&times;</button>
+      <h3 id="modalTitle" style="font-size: 1.25rem; font-weight: bold; margin-bottom: var(--space-4);"></h3>
+      <div id="modalBody" style="display: grid; gap: var(--space-3);">
+        <input id="modalNickname" type="text" placeholder="Nickname" style="width: 100%;" />
+        <input id="modalEmail" type="email" placeholder="Email" style="width: 100%;" />
+        <select id="modalRole" style="width: 100%;">
           <option value="user">User</option>
           <option value="cafeOwner">Cafe Owner</option>
           <option value="circleHost">Circle Host</option>
           <option value="admin">Admin</option>
         </select>
-        <label class="flex items-center gap-2">
-          <input type="checkbox" id="modalFlagged" class="accent-red-600" />
-          Temporarily Banned
+        <label style="display: flex; align-items: center; gap: var(--space-2); cursor: pointer;">
+          <input type="checkbox" id="modalFlagged" /> Temporarily Banned
         </label>
-        <textarea id="modalAdminNotes" placeholder="Internal admin notes" class="w-full border px-3 py-2 rounded"></textarea>
-        <div class="grid grid-cols-1 gap-2">
-          <input id="modalAssignBadge" type="text" placeholder="Assign badge ID" class="w-full border px-3 py-2 rounded" />
-          <button id="modalPasswordResetBtn" type="button" class="bg-yellow-600 text-white px-3 py-2 rounded hover:bg-yellow-700">Send password reset</button>
+        <textarea id="modalAdminNotes" placeholder="Internal admin notes" style="width: 100%; min-height: 80px;"></textarea>
+        <div style="display: grid; gap: var(--space-2);">
+          <input id="modalAssignBadge" type="text" placeholder="Assign badge ID" style="width: 100%;" />
+          <button id="modalPasswordResetBtn" type="button" style="background: var(--color-warning); color: white; padding: var(--space-2); border: 0; border-radius: var(--radius-sm); cursor: pointer; font-weight: bold;">Send password reset</button>
         </div>
-        <details class="bg-gray-50 rounded p-3">
-          <summary class="cursor-pointer font-semibold">Moderator tools</summary>
-          <div id="modalModerationTools" class="text-sm text-gray-700 mt-3">Open a user to load reviews and photos.</div>
+        <details style="background: var(--bg-secondary); padding: var(--space-3); border-radius: var(--radius-sm);">
+          <summary style="cursor: pointer; font-weight: bold;">Moderator tools</summary>
+          <div id="modalModerationTools" style="font-size: 0.9rem; color: var(--text-secondary); margin-top: var(--space-2);">Open a user to load reviews and photos.</div>
         </details>
-        <div class="text-sm text-gray-500">
+        <div style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6;">
           <div>📅 Created: <span id="modalCreatedAt">-</span></div>
           <div>⏱️ Last Login: <span id="modalLastLogin">-</span></div>
           <div>🏅 Badges: <span id="modalBadgeCount">0</span></div>
           <div>📝 Reviews: <span id="modalReviewCount">0</span></div>
         </div>
       </div>
-      <div class="flex justify-end mt-6">
-        <button id="modalSaveBtn" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Save</button>
+      <div style="display: flex; justify-content: flex-end; margin-top: var(--space-6);">
+        <button id="modalSaveBtn" class="primary-link">Save</button>
       </div>
     </div>
   </div>
 
-  <!-- Admin logic -->
   <script type="module" src="/admin/adminPanel.js" defer></script>
-
 </body>
 </html>

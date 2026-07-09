@@ -5,92 +5,101 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>MyCafe | Create Circle</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <meta name="theme-color" content="#047857">
   <link rel="stylesheet" href="css/style.css" />
 </head>
 
 <body>
   <header class="site-header">
-    <a href="index.html" class="brand-link">☕ <span class="text-xl font-bold">MyCafe</span></a>
+    <a href="index.html" class="brand-link">☕ <span>MyCafe</span></a>
     <nav class="main-nav">
-      <a href="circles.html" class="hover:underline">Cafe Circles</a>
-      <a href="dashboard.html" class="hover:underline">Dashboard</a>
+      <a href="circles.html">Cafe Circles</a>
+      <a href="dashboard.html">Dashboard</a>
       <a href="login.html" class="primary-link">Log in</a>
     </nav>
   </header>
 
-  <main class="max-w-5xl mx-auto px-4 py-8">
-    <section class="intro-panel !py-6">
-      <p class="eyebrow">Guzya's HQ</p>
-      <h1>Create a Cafe Circle.</h1>
+  <main class="dashboard-shell">
+    <section class="dashboard-hero">
+      <div>
+        <p class="eyebrow">Guzya's HQ</p>
+        <h1>Create a Cafe Circle.</h1>
+      </div>
     </section>
 
-    <section class="feature-strip !px-0">
+    <section class="feature-strip" style="padding: 0 0 var(--space-8) 0;">
       <article class="feature-card"><span>Upcoming Circles</span><strong id="upcomingCount">0</strong><small>Events waiting for guests.</small></article>
       <article class="feature-card"><span>Attendee Count</span><strong id="attendeeCount">0</strong><small>Confirmed RSVPs across upcoming events.</small></article>
       <article class="feature-card"><span>Payouts</span><strong id="payoutTotal">0 som</strong><small>Manual payout log total.</small></article>
     </section>
 
-    <section class="workspace-grid !px-0">
+    <section class="workspace-grid" style="padding: 0;">
       <form id="circleForm" class="search-panel">
         <p class="eyebrow">New event</p>
         <h2>Circle details</h2>
-        <label><span>Event name</span><input id="eventName" type="text" required></label>
-        <div class="filter-row">
-          <label><span>Template</span><select id="templateId"></select></label>
-          <label><span>Event status</span><select id="eventStatus">
-            <option value="upcoming">Upcoming</option>
-            <option value="draft">Draft</option>
-            <option value="sold-out">Sold out</option>
-          </select></label>
+        <div style="display: grid; gap: var(--space-4); margin-top: var(--space-4);">
+          <label><span>Event name</span><input id="eventName" type="text" required></label>
+          <div class="filter-row">
+            <label><span>Template</span><select id="templateId"></select></label>
+            <label><span>Event status</span>
+              <select id="eventStatus">
+                <option value="upcoming">Upcoming</option>
+                <option value="draft">Draft</option>
+                <option value="sold-out">Sold out</option>
+              </select>
+            </label>
+          </div>
+          <div class="filter-row">
+            <label><span>Date</span><input id="eventDate" type="date" required></label>
+            <label><span>Time</span><input id="eventTime" type="time" required></label>
+          </div>
+          <div class="filter-row">
+            <label><span>Ticket price per seat</span><input id="pricePerSeat" type="number" min="0" placeholder="som" required></label>
+            <label><span>Seat capacity</span><input id="capacity" type="number" min="1" value="12" required></label>
+          </div>
+          <label><span>Budget total</span><input id="budgetTotal" type="number" min="0" placeholder="som" required></label>
+          <div class="filter-row">
+            <label><span>Gifts</span><input id="budgetGifts" type="number" min="0" value="0"></label>
+            <label><span>Food</span><input id="budgetFood" type="number" min="0" value="0"></label>
+            <label><span>Host salary</span><input id="budgetSalary" type="number" min="0" value="0"></label>
+          </div>
+          <div class="filter-row">
+            <label><span>Marketing</span><input id="budgetMarketing" type="number" min="0" value="0"></label>
+            <label><span>Venue cost</span><input id="budgetVenue" type="number" min="0" value="0"></label>
+          </div>
+          <div class="filter-row">
+            <label><span>Partner cafe</span><input id="partnerCafeName" type="text" placeholder="Mano Cafe"></label>
+            <label><span>Partner share %</span><input id="partnerSharePercent" type="number" min="0" max="100" value="15"></label>
+          </div>
+          <div class="filter-row">
+            <label><span>Partner contact</span><input id="partnerContact" type="text" placeholder="@cafe or phone"></label>
+            <label><span>Payout method</span><input id="payoutMethod" type="text" placeholder="cash, bank, MBank"></label>
+          </div>
+          <div class="filter-row">
+            <label><span>Recurring cadence</span>
+              <select id="recurrenceCadence">
+                <option value="">One-time</option>
+                <option value="weekly">Weekly</option>
+                <option value="biweekly">Biweekly</option>
+                <option value="monthly">Monthly</option>
+              </select>
+            </label>
+            <label><span>Sessions</span><input id="recurrenceCount" type="number" min="0" value="0"></label>
+          </div>
+          <label><span>Featured image URL</span><input id="eventImage" type="url" placeholder="https://..."></label>
+          <label><span>Post-event photo URLs</span><input id="postEventPhotos" type="text" placeholder="Comma-separated URLs"></label>
+          <label><span>Post-event summary</span><textarea id="postEventSummary" rows="3" placeholder="Short recap after the event"></textarea></label>
+          <label><span>Description</span><textarea id="eventDescription" rows="5" required></textarea></label>
+          
+          <button class="primary-link" type="submit" style="margin-top: var(--space-4);">Create Circle</button>
+          <p id="circleStatus" style="font-size: 0.9rem; margin-top: var(--space-2);"></p>
         </div>
-        <div class="filter-row">
-          <label><span>Date</span><input id="eventDate" type="date" required></label>
-          <label><span>Time</span><input id="eventTime" type="time" required></label>
-        </div>
-        <div class="filter-row">
-          <label><span>Ticket price per seat</span><input id="pricePerSeat" type="number" min="0" placeholder="som" required></label>
-          <label><span>Seat capacity</span><input id="capacity" type="number" min="1" value="12" required></label>
-        </div>
-        <label><span>Budget total</span><input id="budgetTotal" type="number" min="0" placeholder="som" required></label>
-        <div class="filter-row">
-          <label><span>Gifts</span><input id="budgetGifts" type="number" min="0" value="0"></label>
-          <label><span>Food</span><input id="budgetFood" type="number" min="0" value="0"></label>
-          <label><span>Host salary</span><input id="budgetSalary" type="number" min="0" value="0"></label>
-        </div>
-        <div class="filter-row">
-          <label><span>Marketing</span><input id="budgetMarketing" type="number" min="0" value="0"></label>
-          <label><span>Venue cost</span><input id="budgetVenue" type="number" min="0" value="0"></label>
-        </div>
-        <div class="filter-row">
-          <label><span>Partner cafe</span><input id="partnerCafeName" type="text" placeholder="Mano Cafe"></label>
-          <label><span>Partner share %</span><input id="partnerSharePercent" type="number" min="0" max="100" value="15"></label>
-        </div>
-        <div class="filter-row">
-          <label><span>Partner contact</span><input id="partnerContact" type="text" placeholder="@cafe or phone"></label>
-          <label><span>Payout method</span><input id="payoutMethod" type="text" placeholder="cash, bank, MBank"></label>
-        </div>
-        <div class="filter-row">
-          <label><span>Recurring cadence</span><select id="recurrenceCadence">
-            <option value="">One-time</option>
-            <option value="weekly">Weekly</option>
-            <option value="biweekly">Biweekly</option>
-            <option value="monthly">Monthly</option>
-          </select></label>
-          <label><span>Sessions</span><input id="recurrenceCount" type="number" min="0" value="0"></label>
-        </div>
-        <label><span>Featured image URL</span><input id="eventImage" type="url" placeholder="https://..."></label>
-        <label><span>Post-event photo URLs</span><input id="postEventPhotos" type="text" placeholder="Comma-separated URLs"></label>
-        <label><span>Post-event summary</span><textarea id="postEventSummary" rows="3" placeholder="Short recap after the event"></textarea></label>
-        <label><span>Description</span><textarea id="eventDescription" rows="5" required></textarea></label>
-        <button class="primary-link mt-4" type="submit">Create Circle</button>
-        <p id="circleStatus" class="mt-3 text-sm"></p>
       </form>
 
       <section class="map-panel">
         <p class="eyebrow">Host tools</p>
         <h2>Manage the room</h2>
-        <div id="hostCircleList" class="marker-list mt-4"></div>
+        <div id="hostCircleList" class="marker-list" style="margin-top: var(--space-4);"></div>
       </section>
     </section>
   </main>

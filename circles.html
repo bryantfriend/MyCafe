@@ -5,50 +5,48 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MyCafe | Circles</title>
   <link rel="manifest" href="manifest.json">
-  <meta name="theme-color" content="#1f5c45">
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <meta name="theme-color" content="#047857">
   <link rel="stylesheet" href="css/style.css" />
-  <style>
-    .bg-cream {
-      background-color: #fefaf1;
-    }
-  </style>
 </head>
-<body class="bg-cream text-gray-800">
+<body>
 
   <header class="site-header">
-    <a href="index.html" class="brand-link"><span class="text-xl font-bold">Cafe Circles</span></a>
-    <div class="flex items-center gap-3">
+    <a href="index.html" class="brand-link"><span>Cafe Circles</span></a>
+    <div style="display: flex; align-items: center; gap: var(--space-3);">
       <a href="create-circle.html" class="primary-link">Host Circle</a>
-      <select id="languageSelector" class="border rounded px-2 py-1"></select>
+      <select id="languageSelector" style="padding: 6px 10px; width: auto; font-size: 0.85rem;"></select>
     </div>
   </header>
 
-  <main class="max-w-5xl mx-auto p-6 bg-cream">
-    <section class="intro-panel !py-6">
-      <p class="eyebrow">Paid social events</p>
-      <h1>Cafe Circles Marketplace</h1>
-      <p class="text-gray-700">Reserve seats for hosted cafe events with transparent pricing, partner cafes, and post-event photos.</p>
+  <main class="dashboard-shell">
+    <section class="dashboard-hero">
+      <div>
+        <p class="eyebrow">Paid social events</p>
+        <h1>Cafe Circles Marketplace</h1>
+        <p style="color: var(--text-secondary); max-width: 600px; margin-top: var(--space-2); font-size: 1.05rem;">Reserve seats for hosted cafe events with transparent pricing, partner cafes, and post-event photos.</p>
+      </div>
     </section>
 
-    <section class="feature-strip !px-0">
+    <section class="feature-strip" style="padding: 0 0 var(--space-8) 0;">
       <article class="feature-card"><span>Upcoming</span><strong id="marketplaceCount">0</strong><small>Bookable circles.</small></article>
       <article class="feature-card"><span>Seats left</span><strong id="marketplaceSeats">0</strong><small>Across active events.</small></article>
       <article class="feature-card"><span>Partner cafes</span><strong id="marketplacePartners">0</strong><small>Venues hosting paid tables.</small></article>
     </section>
 
-    <section class="search-panel mb-6">
+    <section class="search-panel mb-8">
       <div class="filter-row">
         <label><span>Template</span><select id="templateFilter"></select></label>
-        <label><span>Price</span><select id="priceFilter">
-          <option value="">Any price</option>
-          <option value="free">Free</option>
-          <option value="paid">Paid</option>
-        </select></label>
+        <label><span>Price</span>
+          <select id="priceFilter">
+            <option value="">Any price</option>
+            <option value="free">Free</option>
+            <option value="paid">Paid</option>
+          </select>
+        </label>
       </div>
     </section>
 
-    <div id="circlesContainer" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+    <div id="circlesContainer" style="display: grid; gap: var(--space-6); grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));"></div>
   </main>
 
   <script type="module" src="./js/circles.js"></script>

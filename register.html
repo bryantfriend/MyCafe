@@ -5,41 +5,46 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Register – MyCafe</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#047857">
   <link rel="stylesheet" href="css/style.css" />
 </head>
 
 <body>
   <header class="site-header">
-    <a href="index.html" class="brand-link">☕ <span class="text-xl font-bold">MyCafe</span></a>
+    <a href="index.html" class="brand-link">☕ <span>MyCafe</span></a>
     <nav class="main-nav">
       <a href="login.html" class="primary-link">Log in</a>
     </nav>
   </header>
 
-  <main class="max-w-4xl mx-auto px-4 py-8">
-    <section class="intro-panel !py-6">
-      <p class="eyebrow">User account</p>
-      <h1>Create your MyCafe profile.</h1>
+  <main class="dashboard-shell">
+    <section class="dashboard-hero">
+      <div>
+        <p class="eyebrow">User account</p>
+        <h1>Create your MyCafe profile.</h1>
+      </div>
     </section>
 
-    <section class="workspace-grid !px-0">
+    <section class="workspace-grid" style="padding: 0;">
       <form id="registerForm" class="search-panel">
         <p class="eyebrow">Registered User</p>
         <h2>Earn badges and join quests</h2>
-        <label><span>Nickname</span><input id="nickname" type="text" required></label>
-        <label><span>Email</span><input id="email" type="email" required></label>
-        <label><span>Password</span><input id="password" type="password" minlength="6" required></label>
-        <label><span>Language</span><select id="language"></select></label>
-        <button class="primary-link mt-4" type="submit">Create account</button>
-        <p id="registerStatus" class="mt-3 text-sm"></p>
+        <div style="display: grid; gap: var(--space-4); margin-top: var(--space-4);">
+          <label><span>Nickname</span><input id="nickname" type="text" required></label>
+          <label><span>Email</span><input id="email" type="email" required></label>
+          <label><span>Password</span><input id="password" type="password" minlength="6" required></label>
+          <label><span>Language</span><select id="language"></select></label>
+          <button class="primary-link" type="submit" style="margin-top: var(--space-4);">Create account</button>
+          <p id="registerStatus" style="font-size: 0.9rem; margin-top: var(--space-2); color: var(--text-secondary);"></p>
+        </div>
       </form>
 
       <section class="map-panel">
         <p class="eyebrow">Guest reviews</p>
         <h2>Level 1 access</h2>
-        <p class="mt-3">Guests can leave reviews with a name and email. Reviews wait for manual approval, and the email can receive an edit link or account invitation.</p>
-        <a class="secondary-link mt-4" href="index.html#explore">Find a cafe</a>
+        <p style="color: var(--text-secondary); line-height: 1.6; margin: var(--space-4) 0;">Guests can leave reviews with a name and email. Reviews wait for manual approval, and the email can receive an edit link or account invitation.</p>
+        <a class="secondary-link" href="index.html#explore">Find a cafe</a>
       </section>
     </section>
   </main>

@@ -5,25 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>MyCafe | Circle</title>
   <link rel="manifest" href="manifest.json">
-  <meta name="theme-color" content="#1f5c45">
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <meta name="theme-color" content="#047857">
   <link rel="stylesheet" href="css/style.css" />
   <script type="module" src="./js/circlePage.js"></script>
   <script type="module" src="./js/pwa.js"></script>
-  <style>
-    .bg-cream {
-      background-color: #fefaf1;
-    }
-  </style>
 </head>
-<body class="bg-cream text-gray-800">
+<body>
 
   <header class="site-header">
-    <a href="circles.html" class="brand-link"><span class="text-xl font-bold">Cafe Circle</span></a>
-    <select id="languageSelector" class="border rounded px-2 py-1"></select>
+    <a href="circles.html" class="brand-link"><span>Cafe Circle</span></a>
+    <select id="languageSelector" style="padding: 6px 10px; width: auto; font-size: 0.85rem;"></select>
   </header>
 
-  <main class="max-w-6xl mx-auto p-6">
+  <main class="dashboard-shell">
     <div id="circleInfo"></div>
   </main>
 

@@ -5,43 +5,47 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>MyCafe | Edit Review</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <meta name="theme-color" content="#047857">
   <link rel="stylesheet" href="css/style.css" />
 </head>
 
-<body class="text-stone-800">
+<body>
   <header class="site-header">
-    <a href="index.html" class="brand-link">☕ <span class="text-xl font-bold">MyCafe</span></a>
+    <a href="index.html" class="brand-link">☕ <span>MyCafe</span></a>
     <nav class="main-nav">
-      <a href="index.html#explore" class="hover:underline">Explore</a>
-      <a href="dashboard.html" class="hover:underline">Dashboard</a>
+      <a href="index.html#explore">Explore</a>
+      <a href="dashboard.html">Dashboard</a>
     </nav>
   </header>
 
-  <main class="max-w-3xl mx-auto px-4 py-8">
-    <section class="intro-panel !py-6">
-      <p class="eyebrow">Review edit link</p>
-      <h1>Update your cafe review.</h1>
+  <main class="dashboard-shell" style="max-width: 800px;">
+    <section class="dashboard-hero">
+      <div>
+        <p class="eyebrow">Review edit link</p>
+        <h1>Update your cafe review.</h1>
+      </div>
     </section>
 
-    <section id="reviewEditStatus" class="ad-slot" aria-live="polite">Loading review...</section>
+    <section id="reviewEditStatus" class="ad-slot" aria-live="polite" style="background: var(--bg-tertiary); padding: var(--space-4); border-radius: var(--radius-md); text-align: center; margin-bottom: var(--space-6);">Loading review...</section>
 
     <form id="reviewEditForm" class="search-panel hidden">
       <p class="eyebrow">Your review</p>
-      <h2 id="reviewEditCafeName">Cafe review</h2>
-      <label><span>Name</span><input id="editReviewName" type="text" required></label>
-      <label><span>Rating</span>
-        <select id="editReviewRating">
-          <option value="5">5 stars</option>
-          <option value="4">4 stars</option>
-          <option value="3">3 stars</option>
-          <option value="2">2 stars</option>
-          <option value="1">1 star</option>
-        </select>
-      </label>
-      <label><span>Photo URL</span><input id="editReviewPhotoUrl" type="url" placeholder="https://..."></label>
-      <label><span>Review</span><textarea id="editReviewText" rows="6" required></textarea></label>
-      <button class="primary-link mt-4" type="submit">Save changes</button>
+      <h2 id="reviewEditCafeName" style="margin-bottom: var(--space-4);">Cafe review</h2>
+      <div style="display: grid; gap: var(--space-4);">
+        <label><span>Name</span><input id="editReviewName" type="text" required></label>
+        <label><span>Rating</span>
+          <select id="editReviewRating">
+            <option value="5">5 stars</option>
+            <option value="4">4 stars</option>
+            <option value="3">3 stars</option>
+            <option value="2">2 stars</option>
+            <option value="1">1 star</option>
+          </select>
+        </label>
+        <label><span>Photo URL</span><input id="editReviewPhotoUrl" type="url" placeholder="https://..."></label>
+        <label><span>Review</span><textarea id="editReviewText" rows="6" required></textarea></label>
+        <button class="primary-link" type="submit" style="margin-top: var(--space-2);">Save changes</button>
+      </div>
     </form>
   </main>
 
