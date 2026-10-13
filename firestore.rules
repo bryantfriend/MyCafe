@@ -24,7 +24,7 @@ service cloud.firestore {
     }
 
     function hasOnlyChanged(allowedFields) {
-      return request.resource.data.diff(resource.data).changedKeys().hasOnly(allowedFields);
+      return request.resource.data.diff(resource.data).affectedKeys().hasOnly(allowedFields);
     }
 
     function hasOnlySafeAnalyticsFields() {
@@ -73,7 +73,7 @@ service cloud.firestore {
       allow update: if isAdmin()
         || (signedIn()
           && request.auth.uid == userId
-          && !request.resource.data.diff(resource.data).changedKeys().hasAny(["role", "flagged", "adminNotes"]));
+          && !request.resource.data.diff(resource.data).affectedKeys().hasAny(["role", "flagged", "adminNotes"]));
       allow delete: if isAdmin();
     }
 
@@ -82,7 +82,7 @@ service cloud.firestore {
       allow create: if isAdmin();
       allow update: if isAdmin()
         || (isCafeOwner(cafeId)
-          && !request.resource.data.diff(resource.data).changedKeys().hasAny([
+          && !request.resource.data.diff(resource.data).affectedKeys().hasAny([
             "ownerId",
             "extraAdmins",
             "monetization",
